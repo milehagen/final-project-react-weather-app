@@ -1,3 +1,5 @@
-App {
+.App {
   font-family: Google Sans, arial, sans-serif !important;
+  width: 652px;
+  margin: 0 auto;
 }
