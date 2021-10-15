@@ -1,7 +1,7 @@
 .App {
   font-family: Google Sans, arial, sans-serif !important;
-  width: 652px;
-  margin: 0 auto;
+  width: 600px;
+  margin: 50px auto;
   border: solid;
   border-color: darkgrey;
 }

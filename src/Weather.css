@@ -8,10 +8,11 @@ div {
 }
 
 h3 {
-  display: block;
   color: #202124;
-  font-size: 22px;
-  line-height: 26px;
+  display: inline-block;
+  font-size: 48px;
+  line-height: 60px;
+  vertical-align: top;
 }
 
 .current-weather-icon {
@@ -66,7 +67,7 @@ h3 {
 }
 
 .city-date-description {
-  text-align: left;
+  text-align: right;
   padding-left: 18px;
 }
 
