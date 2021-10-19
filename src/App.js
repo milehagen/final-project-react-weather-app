@@ -7,7 +7,7 @@ import Weather from "./Weather";
     <div className="App">
       <div className="container">
       <h1>Weather App</h1>
-      <Weather/>
+      <Weather defaultCity="Oslo" />
       <small>Coded by <a href="https://www.linkedin.com/in/mi-le-hagen-5aa0b617/" target="_blank" rel="noreferrer">Mi Le Hagen</a></small>
       </div>
     </div>
