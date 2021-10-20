@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
-export default function Weather({defaultCity}){
+export default function Weather(){
 
-let [city, setCity]=useState("");
+let [city, setCity]=useState(null);
 let [weatherData, setWeatherData]=useState({cityEntered:false});
 
 function handleSubmit(event){
@@ -17,16 +18,15 @@ function handleSubmit(event){
 function displayWeather(response){
 setWeatherData({
     cityEntered:true,
-
+    date: new Date (response.data.dt * 1000),
     Temperature: response.data.main.temp,
     Description:response.data.weather[0].description,
     Wind: response.data.wind.speed,
     citySearched: response.data.name,
+    icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png` ,
     });
-   
-console.log(response.data);
-}
 
+}
 function updateCity(event){
     setCity(event.target.value);
 }
@@ -48,10 +48,10 @@ let form= <div className="weather">
 
 <div className="row">
             <div className="col-6 current-weather-temp">
-            <img className="current-weather-icon"src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png" alt="current-weather-pic"/> 
+            <img className="current-weather-icon"src={weatherData.icon} alt="weather icon"/> 
             <div className="temperature">
             <div className="temperature-metric-controller">
-                <span className="current-temperature">{weatherData.Temperature}</span>
+                <span className="current-temperature">{Math.round(weatherData.Temperature)}</span>
             <div className="metric-controller">°C |°F</div>
 
             <div className="precip-humid-wind">
@@ -66,7 +66,9 @@ let form= <div className="weather">
   <div className="col-6 city-date-description">
         <div className="current-weather-description">
             <h3>{weatherData.citySearched}</h3>
-                <div className="day">Thursday 13:18</div>
+                <div className="date"> 
+                <FormattedDate date={weatherData.date}/> 
+                </div>
                     <div className="weather-description"><span>{weatherData.Description}</span></div>
         </div>
     </div>
@@ -75,7 +77,6 @@ let form= <div className="weather">
 <div className="row">
 <div className="col-2">
     <p>test</p>
-
 </div>
 
 </div>
