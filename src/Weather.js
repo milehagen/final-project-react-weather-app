@@ -44,7 +44,7 @@ function search(){
           <div className="col-6">
                 <input type="text" placeholder="Enter a city..." className="form-control" autoFocus="yes" onChange={updateCity}/>
             </div>
-                 <div className="col-3">
+                 <div className="col-4">
                 <button type="button" className="btn btn-primary  w-100" >Search</button>
             </div>
          </div>

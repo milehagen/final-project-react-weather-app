@@ -1,0 +1,7 @@
+.row {
+  display: flex;
+}
+
+.humidity-wind {
+  display: inline-block;
+}

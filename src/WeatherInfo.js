@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import CelsiusFahrenheit from "./CelsiusFahrenheit"; 
 
 
 export default function WeatherInfo({data}){
@@ -12,22 +13,20 @@ export default function WeatherInfo({data}){
               alt={data.description}/>
             <span className="temperature">
                 <div className="temperature-number-display">
-                    <h3>{Math.round(data.temperature)}</h3>
-                    <span className="temperature-metric-switch">
-                        <span className="celsius">°C | </span>
-                        <span className="fahrenheit">°F</span>
-                    </span>
-                    <div className="col-2 humidity-wind">
+                 
+                    <CelsiusFahrenheit celsius={data.temperature}/>
+
+                   
+                </div>
+            </span>
+        <span className="col-2 humidity-wind">
               <div>Humidity:
                   <span>{data.humidity}%</span>
               </div>
                <div>Wind:
                   <span>{data.wind}/s</span>
               </div>
-          </div>
-                </div>
-            </span>
-       
+          </span>
           </div>
            <div className="col-6 city-date-weatherDescription">
     <div className="city">{data.cityName}</div> 
