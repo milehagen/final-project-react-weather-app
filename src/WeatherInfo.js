@@ -9,7 +9,9 @@ export default function WeatherInfo({data}){
     return (<div>
          <div className="row">
           <div className="col-6 todays-weatherData">
-              <WeatherIcon code={data.icon}
+              <WeatherIcon 
+              code={data.icon}
+              size={60}
               alt={data.description}/>
             <span className="temperature">
                 <div className="temperature-number-display">

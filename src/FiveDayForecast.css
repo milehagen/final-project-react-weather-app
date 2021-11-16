@@ -1,0 +1,13 @@
+.FiveDayForecast {
+  text-align: center;
+}
+
+.FiveDayForecast-temperature {
+  font-size: 13px;
+}
+
+.temp-min {
+  opacity: 0.6;
+  margin-left: 5px;
+  text-align: center;
+}

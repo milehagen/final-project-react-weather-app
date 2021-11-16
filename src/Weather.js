@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import FiveDayForecast from "./FiveDayForecast";
 
 export default function Weather({defaultCity}){
 
@@ -56,6 +57,7 @@ function search(){
 
 if (weatherData.ready){return (<div>{form}
     <WeatherInfo data={weatherData}/>
+    <FiveDayForecast/>
     </div>);
 }
 
