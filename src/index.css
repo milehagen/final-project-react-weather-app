@@ -1,4 +1,6 @@
 small {
   text-align: center;
   display: block;
+  font-family: Google Sans, arial, sans-serif !important;
+  font-size: 8px;
 }
