@@ -1,0 +1,17 @@
+.city-Day-WeatherDescription {
+  display: block;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 35px;
+  line-height: 25px;
+}
+
+.city {
+  font-size: 30px;
+  padding-bottom: 15px;
+}
+.date {
+  color: #70757a;
+  font-size: 16px;
+  line-height: 20px;
+}

@@ -5,7 +5,8 @@ export default function CelsiusFahrenheit({celsius}){
     
     function showFahrenheit(event){
         event.preventDefault();
-       setUnit("fahrenheit")
+       setUnit("fahrenheit");
+       
     }
 
     function showCelsius(event){
@@ -15,7 +16,7 @@ export default function CelsiusFahrenheit({celsius}){
 
     if(unit==="celsius"){
     return <div>
-           <h3>{Math.round(celsius)}</h3>
+           <h3 className="temperature-day">{Math.round(celsius)}°</h3>
     <span className="temperature-metric-switch">
                         <span className="fahrenheit"> <strong>°C</strong> | <a href="/" onClick={showFahrenheit}>°F</a></span>
                     </span>

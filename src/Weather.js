@@ -3,15 +3,18 @@ import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import FiveDayForecast from "./FiveDayForecast";
+import CityDayWeatherDescription from "./CityDayWeatherDescription";
+import "./CityDayWeatherDescription.css";
 
 export default function Weather({defaultCity}){
 
  let [city, setCity]= useState(defaultCity);
- const [weatherData, setWeatherData]=useState({ready:false});
+ let [weatherData, setWeatherData]=useState({ready:false});
 
   function displayWeather(response){
      setWeatherData({
         ready:true,
+        coordinates: response.data.coord,
         date:new Date(response.data.dt * 1000),
         temperature: response.data.main.temp,
         humidity:response.data.main.humidity,
@@ -50,6 +53,8 @@ function search(){
             </div>
          </div>
     </form>
+               < CityDayWeatherDescription cityDayData={weatherData}/>
+
     </div>
    </div>;
 
@@ -57,7 +62,7 @@ function search(){
 
 if (weatherData.ready){return (<div>{form}
     <WeatherInfo data={weatherData}/>
-    <FiveDayForecast/>
+    <FiveDayForecast coordinates={weatherData.coordinates}/>
     </div>);
 }
 

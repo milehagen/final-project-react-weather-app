@@ -1,23 +1,24 @@
 import React from "react";
-import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import CelsiusFahrenheit from "./CelsiusFahrenheit"; 
+import "./CelciusFahrenheit.css";
+import "./WeatherInfo.css";
 
 
 export default function WeatherInfo({data}){
 
     return (<div>
          <div className="row">
-          <div className="col-6 todays-weatherData">
+          <div className="todays-weatherData">
+              <div className="weather-icon">
               <WeatherIcon 
               code={data.icon}
               size={60}
               alt={data.description}/>
+              </div>
             <span className="temperature">
                 <div className="temperature-number-display">
-                 
                     <CelsiusFahrenheit celsius={data.temperature}/>
-
                    
                 </div>
             </span>
@@ -30,11 +31,7 @@ export default function WeatherInfo({data}){
               </div>
           </span>
           </div>
-           <div className="col-6 city-date-weatherDescription">
-    <div className="city">{data.cityName}</div> 
-    <div className="weekDay"> <FormattedDate date= {data.date}/> </div>
-    <div className="weatherDescription text-capitalize">{data.description}</div>
-         </div>
+          
 </div>
 </div>)
 }

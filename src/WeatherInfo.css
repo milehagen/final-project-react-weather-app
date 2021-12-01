@@ -1,7 +1,20 @@
 .row {
   display: flex;
+  flex-direction: row;
+  text-align: center;
 }
 
 .humidity-wind {
   display: inline-block;
+  color: #70757a;
+  display: center;
+  font-size: 1em;
+  line-height: 25px;
+  padding-top: 25px;
+  padding-bottom: 40px;
+}
+
+.temperature-number-display {
+  display: flex;
+  justify-content: center;
 }
