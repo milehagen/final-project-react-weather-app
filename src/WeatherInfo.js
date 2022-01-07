@@ -14,8 +14,10 @@ export default function WeatherInfo({data}){
               <WeatherIcon 
               code={data.icon}
               size={60}
-              alt={data.description}/>
+              alt={data.description}
+              />
               </div>
+           
             <span className="temperature">
                 <div className="temperature-number-display">
                     <CelsiusFahrenheit celsius={data.temperature}/>

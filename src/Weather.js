@@ -6,8 +6,8 @@ import FiveDayForecast from "./FiveDayForecast";
 import CityDayWeatherDescription from "./CityDayWeatherDescription";
 import "./CityDayWeatherDescription.css";
 
-export default function Weather({defaultCity}){
 
+export default function Weather({defaultCity}){
  let [city, setCity]= useState(defaultCity);
  let [weatherData, setWeatherData]=useState({ready:false});
 

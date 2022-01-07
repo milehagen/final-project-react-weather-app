@@ -10,7 +10,6 @@ export default function FiveDayForecast({coordinates}){
     
     function handleResponse(response){
         setDailyForecast(response.data.daily);
-        console.log(dailyForecast);
         setReady(true);
     }
 
@@ -21,9 +20,7 @@ export default function FiveDayForecast({coordinates}){
             {dailyForecast.map(function(element, index) {
                 if (index<5){
                 return( 
-        
                 <WeatherForecastDay  key ={index} dailyForecastData={element}/>
-            
                 )
                 }
             })}
