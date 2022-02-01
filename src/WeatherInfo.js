@@ -6,7 +6,9 @@ import "./WeatherInfo.css";
 
 
 export default function WeatherInfo({data}){
-
+ function changeColor(color){
+console.log(color);
+ }
     return (<div>
          <div className="row">
           <div className="todays-weatherData">
@@ -15,6 +17,7 @@ export default function WeatherInfo({data}){
               code={data.icon}
               size={60}
               alt={data.description}
+              changeColor={this.changeColor}
               />
               </div>
            
