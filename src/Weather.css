@@ -1,7 +1,8 @@
 form {
   width: 100%;
-  padding-top: 35px;
-  padding-left: 10px;
+  margin: 20px;
+  display: block;
+
 }
 
 h3 {
@@ -9,6 +10,14 @@ h3 {
   display: block;
   font-size: 100px;
   line-height: 100px;
+}
+
+input {
+  margin-top: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .temperature-metric-switch {
@@ -30,9 +39,6 @@ li {
   margin: 0 auto;
 }
 
-.col-6 {
-  padding: 20px;
-}
 
 .temperature-and-icon {
   padding-top: 50px;
