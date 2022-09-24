@@ -3,6 +3,7 @@ form {
   padding-top: 35px;
   padding-left: 10px;
 }
+
 h3 {
   color: #202124;
   display: block;
@@ -22,4 +23,21 @@ h3 {
 
 li {
   list-style-type: none;
+}
+
+.CityDayWeatherDescription {
+  display: block;
+  margin: 0 auto;
+}
+
+.col-6 {
+  padding: 20px;
+}
+
+.temperature-and-icon {
+  padding-top: 50px;
+}
+
+.btn {
+  margin: 20px;
 }

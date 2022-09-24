@@ -6,66 +6,81 @@ import FiveDayForecast from "./FiveDayForecast";
 import CityDayWeatherDescription from "./CityDayWeatherDescription";
 import "./CityDayWeatherDescription.css";
 
+export default function Weather({ defaultCity }) {
+	let [city, setCity] = useState(defaultCity);
+	let [weatherData, setWeatherData] = useState({ ready: false });
 
-export default function Weather({defaultCity}){
- let [city, setCity]= useState(defaultCity);
- let [weatherData, setWeatherData]=useState({ready:false});
+	function displayWeather(response) {
+		setWeatherData({
+			ready: true,
+			coordinates: response.data.coord,
+			date: new Date(response.data.dt * 1000),
+			temperature: response.data.main.temp,
+			humidity: response.data.main.humidity,
+			cityName: response.data.name,
+			description: response.data.weather[0].description,
+			icon: response.data.weather[0].icon,
+			wind: response.data.wind.speed,
+		});
+	}
+	function search() {
+		let apiKey = "7bc66b8226689078b2ef89f11a04633c";
+		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-  function displayWeather(response){
-     setWeatherData({
-        ready:true,
-        coordinates: response.data.coord,
-        date:new Date(response.data.dt * 1000),
-        temperature: response.data.main.temp,
-        humidity:response.data.main.humidity,
-        cityName: response.data.name,
-        description: response.data.weather[0].description,
-        icon: response.data.weather[0].icon,
-        wind: response.data.wind.speed,
-        
-     }
-     );
- }
-function search(){
-    let apiKey="7bc66b8226689078b2ef89f11a04633c";
-    let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+		axios.get(apiUrl).then(displayWeather);
+	}
 
-     axios.get(apiUrl).then(displayWeather);
- }
+	function handleSubmit(event) {
+		event.preventDefault();
+		search();
+	}
 
-  function handleSubmit(event){
-     event.preventDefault();
-    search();
- }
- 
- function updateCity(event){
-     setCity(event.target.value)
- }
+	function updateCity(event) {
+		setCity(event.target.value);
+	}
 
- let form =  <div><div className="weather">
-      <form onSubmit={handleSubmit}>  
-          <div className="row">
-          <div className="col-6">
-                <input type="text" placeholder="Enter a city..." className="form-control" autoFocus="yes" onChange={updateCity}/>
-            </div>
-                 <div className="col-4">
-                <button type="button" className="btn btn-primary  w-100" >Search</button>
-            </div>
-         </div>
-    </form>
-               < CityDayWeatherDescription cityDayData={weatherData}/>
+	let form = (
+		<div>
+			<div className="weather">
+				<form onSubmit={handleSubmit}>
+					<div className="row">
+						<div className="col-6">
+							<input
+								type="text"
+								placeholder="Enter a city..."
+								className="form-control"
+								autoFocus="yes"
+								onChange={updateCity}
+							/>
+						</div>
+						<div className="col-4">
+							<button type="button" className="btn btn-primary  w-100">
+								Search
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	);
 
-    </div>
-   </div>;
-
-
-
-if (weatherData.ready){return (<div>{form}
-    <WeatherInfo data={weatherData}/>
-    <FiveDayForecast coordinates={weatherData.coordinates}/>
-    </div>);
-}
-
-else { search(); return "loading...";
-}
+	if (weatherData.ready) {
+		return (
+			<div>
+				{form}
+				<div class="row">
+					<div class="col-6 temperature-and-icon">
+						<WeatherInfo data={weatherData} />
+					</div>
+					<div className="col-6 CityDayWeatherDescription">
+						<CityDayWeatherDescription cityDayData={weatherData} />
+					</div>
+				</div>
+				<FiveDayForecast coordinates={weatherData.coordinates} />
+			</div>
+		);
+	} else {
+		search();
+		return "loading...";
+	}
 }

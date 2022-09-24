@@ -1,3 +1,8 @@
 a {
   text-decoration: none !important;
 }
+
+.temperature-metric-switch {
+  display: block;
+  margin-right: 35px;
+}
